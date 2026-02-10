@@ -1,15 +1,13 @@
 package org.example;
 
-import Controller.PokemonController;
-import Service.PokeService;
-import View.PokedexView;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-class Main {
-    static void main() { // Sem public e sem String[] args
-        PokedexView view = new PokedexView();
-        PokeService service = new PokeService();
-
-        PokemonController controller = new PokemonController(view, service);
-        controller.iniciar();
+@SpringBootApplication
+@ComponentScan(basePackages = {"Controller", "Service", "Model"})
+public class Main {
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
     }
 }
